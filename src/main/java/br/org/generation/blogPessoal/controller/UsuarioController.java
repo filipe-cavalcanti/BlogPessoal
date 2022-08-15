@@ -29,6 +29,7 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioService service;
+	
 	@Autowired
 	private UsuarioRepository repository;
 
@@ -58,6 +59,5 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> putUsuario(@Valid @RequestBody Usuario usuario) {
 		return service.atualizarUsuario(usuario).map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-
 	}
 }
